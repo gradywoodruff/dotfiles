@@ -20,3 +20,8 @@ if [ -f '/Users/gradywoodruff/.google-cloud-sdk/completion.bash.inc' ]; then sou
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+## Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
