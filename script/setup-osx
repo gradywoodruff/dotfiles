@@ -171,10 +171,6 @@ setup_osx () {
   # Reset Launchpad
   find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
-  # Add iOS Simulator to Launchpad
-  ln -s /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app
-  success "Add iOS Simulator to Launchpad"
-
   # Hot corners
   # Possible values:
   #  0: no-op
