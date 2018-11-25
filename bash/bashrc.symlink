@@ -33,11 +33,8 @@ if [ -f ~/.bash_extras ]; then
    source ~/.bash_extras
 fi
 
-# added by travis gem
-# source /Users/Mike/.travis/travis.sh
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-# source /Users/Mike/perl5/perlbrew/etc/bashrc
+# source /Users/gradywoodruff/perl5/perlbrew/etc/bashrc
 
 export PATH="$HOME/.yarn/bin:$PATH"
