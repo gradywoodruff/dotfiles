@@ -40,6 +40,14 @@ files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME` when you run `script/bootstrap`.
 
+To create a new file, 
+1. write the `.symlink` file in whatever folder of the dotfiles
+that you want it to exist in. Run this command to make an alias.
+```ln -sv "/Users/#{username}/.dotfiles/script/../bash/#{filename}.symlink" ~/.#{filename}```
+
+2. add this line to `bashrc.symlink`
+```source ~/.#{filename}```
+
 ## what's inside
 
 A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
@@ -79,3 +87,7 @@ This repository comes from:
 - [Ryan Bates](http://github.com/ryanb)' excellent [dotfiles](http://github.com/ryanb/dotfiles)
 
 A decent amount of the code in these dotfiles stem or are inspired from Zach's or Ryan's original projects.
+
+## Resources
+
+- [https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)

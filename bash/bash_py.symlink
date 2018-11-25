@@ -1,0 +1,26 @@
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+export PIPENV_VENV_IN_PROJECT=1
+# PROMPT_COMMAND='prompt'
+export PROMPT_COMMAND="prompt;$PROMPT_COMMAND"
+source ~/.bash_preexec
+precmd() { eval "$PROMPT_COMMAND"; }
+function prompt() {
+    if [ ! $PIPENV_ACTIVE ]; then
+      if [ `pipenv --venv 2>/dev/null` ]; then
+        export PIPENV_INITPWD="$PWD"
+        pipenv shell
+      fi
+    elif [ $PIPENV_INITPWD ] ; then
+      cd "$PIPENV_INITPWD"
+      unset PIPENV_INITPWD
+    fi
+}

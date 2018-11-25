@@ -21,6 +21,7 @@ source ~/.bash_completions
 source ~/.bash_prompt
 source ~/.bash_ssh
 source ~/.bash_rb
+source ~/.bash_py
 
 case $TERM in
 xterm* | aterm | rxvt | screen )
@@ -37,4 +38,27 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 # source /Users/gradywoodruff/perl5/perlbrew/etc/bashrc
 
-export PATH="$HOME/.yarn/bin:$PATH"
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+## moved to ./bash_py
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+# export PIPENV_VENV_IN_PROJECT=1
+# PROMPT_COMMAND='prompt'
+# precmd () { eval "$PROMPT_COMMAND"; }
+# function prompt () {
+#     if [ ! $PIPENV_ACTIVE ]; then
+#       if [ `pipenv --venv 2>/dev/null` ]; then
+#         export PIPENV_INITPWD="$PWD"
+#         pipenv shell
+#       fi
+#     elif [ $PIPENV_INITPWD ] ; then
+#       cd "$PIPENV_INITPWD"
+#       unset PIPENV_INITPWD
+#     fi
+# }
+
+[[ -f ~/.bash_preexec ]] && source ~/.bash_preexec
