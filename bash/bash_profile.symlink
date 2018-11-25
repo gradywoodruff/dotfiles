@@ -17,3 +17,6 @@ if [ -f '/Users/gradywoodruff/.google-cloud-sdk/path.bash.inc' ]; then source '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gradywoodruff/.google-cloud-sdk/completion.bash.inc' ]; then source '/Users/gradywoodruff/.google-cloud-sdk/completion.bash.inc'; fi
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
