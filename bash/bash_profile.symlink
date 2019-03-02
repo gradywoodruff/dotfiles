@@ -25,3 +25,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+## sqlite3 rerouted to brew
+export PATH="/usr/local/opt/sqlite3/bin:$PATH"

@@ -1,0 +1,40 @@
+alias docker-kill-all='docker ps --format "{{.ID}}" | xargs docker kill'
+alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
+alias force-push='git push -f origin $(git-branch)'
+alias gs='git status'
+alias ll='ls -l -a'
+alias lando-login='lando terminus auth:login --machine-token=3irqDZt3z1CUd28nT9GW0EMod_rEA0PEOOXEFYS0E3pko'
+alias ls='ls -GpF'
+alias pg='pg_ctl -D /usr/local/var/postgres'
+alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias py='python'
+alias shrug='echo "¯\_(ツ)_/¯" | pbcopy'
+alias sites='cd ~/Sites'
+alias sshkey='cat ~/.ssh/id_rsa.pub | pbcopy'
+alias ssh-fingerprint='ssh-keygen -E md5 -lf'
+alias sync='git push origin develop; git checkout master; git push origin master; git push origin $(version)'
+alias terminus-login='terminus auth:login --machine-token=3irqDZt3z1CUd28nT9GW0EMod_rEA0PEOOXEFYS0E3pko'
+alias xcode_enable_vim='cd ~/Desktop/XVim/; make'
+alias xcode_disable_vim='cd ~/Desktop/XVim/; make uninstall'
+
+lorem () {
+  gtr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>10' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' |fmt | head -n $1 | pbcopy
+}
+www () {
+  destination="$1";
+  if [ $destination = "github" ]; then
+    gitlab_handle="$(git remote -v | head -n 1 | sed 's/.*\/\(.[^.]*\).*/\1/')"; 
+    open "https://github.com/gradywoodruff/${gitlab_handle}";
+  elif [ $destination = "gitlab" ]; then
+    gitlab_handle="$(git remote -v | head -n 1 | sed 's/.*\/\(.[^.]*\).*/\1/')"; 
+    open "https://gitlab.com/barrel/${gitlab_handle}";
+  elif [ $destination = "gmail" ]; then
+    open "https://mail.google.com/mail/u/0/#inbox";
+  fi 
+}
+
+# Opens a project in VSCode
+project () {
+  sites; code $1;
+}
