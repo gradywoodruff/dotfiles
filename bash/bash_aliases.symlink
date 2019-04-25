@@ -3,6 +3,7 @@ alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 alias force-push='git push -f origin $(git-branch)'
 alias gs='git status'
 alias ll='ls -l -a'
+alias version='git tag --sort v:refname | grep "^v" | tail -1'
 alias lando-login='lando terminus auth:login --machine-token=3irqDZt3z1CUd28nT9GW0EMod_rEA0PEOOXEFYS0E3pko'
 alias ls='ls -GpF'
 alias pg='pg_ctl -D /usr/local/var/postgres'
@@ -14,18 +15,21 @@ alias sites='cd ~/Sites'
 alias sshkey='cat ~/.ssh/id_rsa.pub | pbcopy'
 alias ssh-fingerprint='ssh-keygen -E md5 -lf'
 alias sync='git push origin develop; git checkout master; git push origin master; git push origin $(version)'
+alias sync_pantheon='git checkout develop && git push origin develop && git checkout master && git push origin master && git push pantheon master; git push origin $(version)'
 alias terminus-login='terminus auth:login --machine-token=z-NN58HEoE_XU4Y_E1FSf_v-4aAo-GFOQEG3RPo0xJuMl'
 alias lando-login='lando terminus auth:login --machine-token=z-NN58HEoE_XU4Y_E1FSf_v-4aAo-GFOQEG3RPo0xJuMl'
 alias xcode_enable_vim='cd ~/Desktop/XVim/; make'
 alias xcode_disable_vim='cd ~/Desktop/XVim/; make uninstall'
 alias full-pull="git checkout develop; git pull; git checkout master; git pull;"
-alias version='git tag --sort v:refname | grep "^v" | tail -1'
 alias origin-tag='v=$version && git push origin $v'
 alias test-tag='git tag --sort v:refname | grep test | tail -1'
 alias live-tag='git tag --list | grep live | sort -t _ -k 3,3n | tail -1'
-alias increment="perl -pe 's/([0-9]+)\b/0\$1~01234567890/g' | perl -pe 's/0(?!9*~)|([0-9])(?=9*~[0-9]*?\1([0-9]))|~[0-9]*/\$2/g'"
-alias pantheon-test-deploy='p=$(test-tag | increment) && git tag $p && git push pantheon $p'
-alias pantheon-live-deploy='p=$(live-tag | increment) && git tag $p && git push pantheon $p'
+alias test-tag='git tag --sort v:refname | grep _test_ | tail -1'
+alias increment-test='t=$(test-tag); p="pantheon_test_"; v=${t:${#p}}; echo $(($v+1))'
+alias pantheon-deploy-test='p="pantheon_test_"$(increment-test) && git tag $p && git push pantheon $p'
+alias live-tag='git tag --sort v:refname | grep _live_ | tail -1'
+alias increment-live='t=$(live-tag); p="pantheon_live_"; v=${t:${#p}}; echo $(($v+1))'
+alias pantheon-deploy-live='p="pantheon_live_"$(increment-live) && git tag $p && git push pantheon $p'
 alias hotfix-finish='v=$(version | increment) && git flow hotfix finish $v'
 alias inc="echo 'perl -pe \'s/([0-9]+)\b/0\$1~01234567890/g\' | perl -pe \'s/0(?!9*~)|([0-9])(?=9*~[0-9]*?\$1([0-9]))|~[0-9]*/\$2/g\'' | pbcopy"
 alias log="git log --oneline"
@@ -44,6 +48,32 @@ www () {
   elif [ $destination = "gmail" ]; then
     open "https://mail.google.com/mail/u/0/#inbox";
   fi 
+}
+base () {
+  path=$PWD;
+  base=${path#/Users/gradywoodruff};
+  project_type=$(echo "$base" | cut -d "/" -f2);
+  project=$(echo "$base" | cut -d "/" -f3);
+  if [ $project_type = "Sites" ]; then
+    if [ $project = "well-good" ]; then
+      cd ../../..;
+    fi;
+  else
+    echo "no base for this project";
+  fi
+}
+repo () {
+  path=$PWD;
+  base=${path#/Users/gradywoodruff};
+  project_type=$(echo "$base" | cut -d "/" -f2);
+  project=$(echo "$base" | cut -d "/" -f3);
+  if [ $project_type = "Sites" ]; then
+    if [ $project = "well-good" ]; then
+      cd wp-content/themes/wellgood-2016;
+    fi;
+  else
+    echo "no repo for this project";
+  fi
 }
 project () {
   # Open encrypted notes
