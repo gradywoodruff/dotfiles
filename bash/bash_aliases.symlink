@@ -49,7 +49,7 @@ www () {
     open "https://mail.google.com/mail/u/0/#inbox";
   fi 
 }
-base () {
+cdbase () {
   path=$PWD;
   base=${path#/Users/gradywoodruff};
   project_type=$(echo "$base" | cut -d "/" -f2);
@@ -62,7 +62,7 @@ base () {
     echo "no base for this project";
   fi
 }
-repo () {
+cdtheme () {
   path=$PWD;
   base=${path#/Users/gradywoodruff};
   project_type=$(echo "$base" | cut -d "/" -f2);
@@ -72,7 +72,7 @@ repo () {
       cd wp-content/themes/wellgood-2016;
     fi;
   else
-    echo "no repo for this project";
+    echo "no theme for this project";
   fi
 }
 project () {
