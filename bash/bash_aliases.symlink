@@ -1,7 +1,6 @@
 alias docker-kill-all='docker ps --format "{{.ID}}" | xargs docker kill'
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 alias force-push='git push -f origin $(git-branch)'
-alias gs='git status'
 alias ll='ls -l -a'
 alias version='git tag --sort v:refname | grep "^v" | tail -1'
 alias lando-login='lando terminus auth:login --machine-token=3irqDZt3z1CUd28nT9GW0EMod_rEA0PEOOXEFYS0E3pko'
@@ -74,6 +73,21 @@ cdtheme () {
   else
     echo "no theme for this project";
   fi
+}
+status () {
+  path=$PWD;
+  base=${path#/Users/gradywoodruff};
+  project_type=$(echo "$base" | cut -d "/" -f2);
+  project=$(echo "$base" | cut -d "/" -f3);
+  notes=$(find /Volumes/notes -name "$project" -type d 2>/dev/null);
+  file=$(find "$notes" -name "__status.*");
+  date=`date '+%Y%m%d%H%M'`;
+  last_update=$(head -n 1 "$file");
+  update=$1;
+  $(echo -e '\n' | cat - "$file" > temp && mv temp "$file");
+  $(echo -e '\t-\t'"$update" | cat - "$file" > temp && mv temp "$file");
+  $(echo "$date" | cat - "$file" > temp && mv temp "$file");
+  echo $last_update;
 }
 project () {
   # Open encrypted notes
