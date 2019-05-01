@@ -81,13 +81,26 @@ status () {
   project=$(echo "$base" | cut -d "/" -f3);
   notes=$(find /Volumes/notes -name "$project" -type d 2>/dev/null);
   file=$(find "$notes" -name "__status.*");
-  date=`date '+%Y%m%d%H%M'`;
-  last_update=$(head -n 1 "$file");
+  date=`date '+%Y%m%d'`;
+  time=`date '+%H%M'`;
+  last_date=$(head -n 1 "$file");
+  last_time=$(sed '2q;d' "$file");
   update=$1;
-  $(echo -e '\n' | cat - "$file" > temp && mv temp "$file");
-  $(echo -e '\t-\t'"$update" | cat - "$file" > temp && mv temp "$file");
-  $(echo "$date" | cat - "$file" > temp && mv temp "$file");
-  echo $last_update;
+
+  if [ $date == $last_date ]; then
+    if [ $time == $last_time ]; then
+      (echo 2a; echo -e '\t-\t'"$update"; echo .; echo w) | ed - "$file";
+    else
+      (echo 1a; echo -e '\t-\t'"$update"; echo .; echo w) | ed - "$file";
+      (echo 1a; echo -e '\t'"$time"; echo .; echo w) | ed - "$file";
+    fi
+  else
+    (echo 0a; echo -e '\n'; echo .; echo w) | ed - "$file";
+    (echo 0a; echo -e '\t-\t'"$update"; echo .; echo w) | ed - "$file";
+    (echo 0a; echo -e '\t'"$time"; echo .; echo w) | ed - "$file";
+    (echo 0a; echo "$date"; echo .; echo w) | ed - "$file";
+  fi
+  echo "__status.txt updated";
 }
 project () {
   # Open encrypted notes
