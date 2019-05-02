@@ -74,6 +74,27 @@ cdtheme () {
     echo "no theme for this project";
   fi
 }
+note () {
+  path=$PWD;
+  base=${path#/Users/gradywoodruff};
+  project_type=$(echo "$base" | cut -d "/" -f2);
+  project=$(echo "$base" | cut -d "/" -f3);
+  notes=$(find /Volumes/notes -name "$project" -type d 2>/dev/null);
+  note_type=$1;
+  if [ $2 ]; then
+    note_name=$2;
+  else
+    note_name=`date '+%Y%m%d'`;
+  fi
+  if [ $(find "$notes" -name "$note_type" -type d 2>/dev/null) ]; then
+    note_path=$(find "$notes" -name "$note_type" -type d 2>/dev/null);
+    echo >${note_path}/${note_name}.txt;
+  else
+    note_name=$note_type;
+    note_path=$notes;
+    echo >${note_path}/_${note_name}.txt;
+  fi
+}
 status () {
   path=$PWD;
   base=${path#/Users/gradywoodruff};
@@ -85,7 +106,7 @@ status () {
   time=`date '+%H%M'`;
   last_date=$(head -n 1 "$file");
   last_time=$(sed '2q;d' "$file");
-  update=$1;
+  update=${@:1};
 
   if [ $date == $last_date ]; then
     if [ $time == $last_time ]; then
