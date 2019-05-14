@@ -46,7 +46,7 @@ www () {
     open "https://gitlab.com/barrel/${gitlab_handle}";
   elif [ $destination = "gmail" ]; then
     open "https://mail.google.com/mail/u/0/#inbox";
-  fi 
+  fi
 }
 cdbase () {
   path=$PWD;
@@ -147,12 +147,24 @@ project () {
   # Open encrypted notes
   hdiutil attach ~/Documents/_notes.dmg;
 
+  if [ $1 = "well-good" ]; then
+    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://wellgood.lndo.site/wp-admin http://wellgood.lndo.site';
+  elif [ $1 = "sophia_roe" ]; then
+    tabs='https://dashboard.heroku.com/apps/sophiaroe http://127.0.0.1:8000/';
+  fi 
+
   if [ -f ~/sites/$1/$1.code-workspace ]; then
     echo "Workspace located";
     sites; code $1/$1.code-workspace;
   else
     echo "No workspace available";
     sites; code $1;
+  fi
+
+  if [ -z "$tabs" ]; then
+    echo "No tabs for project";
+  else
+    open -a "Google Chrome" $tabs;
   fi
 }
 
