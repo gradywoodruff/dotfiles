@@ -150,7 +150,7 @@ project () {
   if [ $1 = "well-good" ]; then
     tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://wellgood.lndo.site/wp-admin http://wellgood.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
-    tabs='https://dashboard.heroku.com/apps/sophiaroe http://127.0.0.1:8000/';
+    tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   fi 
 
   if [ -f ~/sites/$1/$1.code-workspace ]; then
