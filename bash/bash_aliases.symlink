@@ -153,6 +153,8 @@ project () {
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
     tabs='https://docs.google.com/document/d/10lpzLG-bPAhr6iXyDP0Xt2L-UdzNz7-lv1swoVq5bt8/edit?ts=5bc8e5f2 https://capbeauty.myshopify.com/admin';
+  elif [ $1 = "textpile" ]; then
+    tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/textpile https://app.sendgrid.com/ https://textpile.herokuapp.com/ http://localhost:3000/';
   fi 
 
   if [ -f ~/sites/$1/$1.code-workspace ]; then
