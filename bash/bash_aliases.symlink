@@ -95,6 +95,9 @@ note () {
     echo >${note_path}/_${note_name}.txt;
   fi
 }
+now () {
+  echo `date '+%Y%m%d%H%M%S'`;
+}
 todo () {
   path=$PWD;
   base=${path#/Users/gradywoodruff};
@@ -148,6 +151,8 @@ project () {
   hdiutil attach ~/Documents/_notes.dmg;
 
   if [ $1 = "well-good" ]; then
+    open -a "Harvest";
+    open -a "Slack";
     tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://wellgood.lndo.site/wp-admin http://wellgood.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
