@@ -151,25 +151,38 @@ project () {
   hdiutil attach ~/Documents/_notes.dmg;
 
   if [ $1 = "well-good" ]; then
-    open -a "Harvest";
-    open -a "Slack";
+    open_harvest=true;
+    open_slack=true;
     tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://wellgood.lndo.site/wp-admin http://wellgood.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
+    open_harvest=false;
+    open_slack=false;
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
+    open_harvest=true;
+    open_slack=false;
     tabs='https://docs.google.com/document/d/10lpzLG-bPAhr6iXyDP0Xt2L-UdzNz7-lv1swoVq5bt8/edit?ts=5bc8e5f2 https://capbeauty.myshopify.com/admin';
   elif [ $1 = "textpile" ]; then
+    open_harvest=true;
+    open_slack=false;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/textpile https://app.sendgrid.com/ https://textpile.herokuapp.com/ http://localhost:3000/';
   fi 
 
-  if [ -f ~/sites/$1/$1.code-workspace ]; then
-    echo "Workspace located";
-    sites; code $1/$1.code-workspace;
-  else
-    echo "No workspace available";
-    sites; code $1;
+  if [ $2 != "web"]; then
+    if [ "$open_harvest" != false ]; then
+      open -a "Harvest";
+    fi
+    if [ "$open_slack" != false ]; then
+      open -a "Slack";
+    fi
+    if [ -f ~/sites/$1/$1.code-workspace ]; then
+      echo "Workspace located";
+      sites; code $1/$1.code-workspace;
+    else
+      echo "No workspace available";
+      sites; code $1;
+    fi
   fi
-
   if [ -z "$tabs" ]; then
     echo "No tabs for project";
   else
