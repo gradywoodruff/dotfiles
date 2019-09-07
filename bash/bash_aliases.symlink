@@ -168,7 +168,7 @@ project () {
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/textpile https://app.sendgrid.com/ https://textpile.herokuapp.com/ http://localhost:3000/';
   fi 
 
-  if [ $2 != "web"]; then
+  if [ -z "$2" ] || [ $2 != "web" ]; then
     if [ "$open_harvest" != false ]; then
       open -a "Harvest";
     fi
