@@ -166,6 +166,10 @@ project () {
     open_harvest=true;
     open_slack=false;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/textpile https://app.sendgrid.com/ https://textpile.herokuapp.com/ http://localhost:3000/';
+  elif [ $1 = "dear-me" ]; then
+    open_harvest=true;
+    open_slack=false;
+    tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/dearme-v0 https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:3000/';
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then
