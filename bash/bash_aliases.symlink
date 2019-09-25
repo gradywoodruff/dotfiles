@@ -153,7 +153,7 @@ project () {
   if [ $1 = "well-good" ]; then
     open_harvest=true;
     open_slack=true;
-    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://wellgood.lndo.site/wp-admin http://wellgood.lndo.site';
+    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://well-good.lndo.site/wp-admin http://well-good.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
     open_harvest=false;
     open_slack=false;
@@ -170,6 +170,9 @@ project () {
     open_harvest=true;
     open_slack=false;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/dearme-v0 https://github.com/gradywoodruff/dear-me/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:3000/';
+  else
+    open_harvest=false;
+    open_slack=false;
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then
