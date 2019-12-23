@@ -170,6 +170,10 @@ project () {
     open_harvest=true;
     open_slack=false;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/dearme-v0 https://github.com/gradywoodruff/dear-me/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:3000/';
+  elif [ $1 = "fake-weather" ]; then
+    open_harvest=true;
+    open_slack=false;
+    tabs='https://github.com/gradywoodruff/fake-weather';
   else
     open_harvest=false;
     open_slack=false;
