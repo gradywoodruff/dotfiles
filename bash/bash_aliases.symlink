@@ -32,6 +32,7 @@ alias pantheon-deploy-live='p="pantheon_live_"$(increment-live) && git tag $p &&
 alias hotfix-finish='v=$(version | increment) && git flow hotfix finish $v'
 alias inc="echo 'perl -pe \'s/([0-9]+)\b/0\$1~01234567890/g\' | perl -pe \'s/0(?!9*~)|([0-9])(?=9*~[0-9]*?\$1([0-9]))|~[0-9]*/\$2/g\'' | pbcopy"
 alias log="git log --oneline"
+alias branch="git branch"
 
 lorem () {
   gtr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>10' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' |fmt | head -n $1 | pbcopy
