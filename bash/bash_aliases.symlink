@@ -16,7 +16,6 @@ alias ssh-fingerprint='ssh-keygen -E md5 -lf'
 alias sync='git push origin develop; git checkout master; git push origin master; git push origin $(version)'
 alias sync_pantheon='git checkout develop && git push origin develop && git checkout master && git push origin master && git push pantheon master; git push origin $(version)'
 alias terminus-login='terminus auth:login --machine-token=z-NN58HEoE_XU4Y_E1FSf_v-4aAo-GFOQEG3RPo0xJuMl'
-alias lando-login='lando terminus auth:login --machine-token=z-NN58HEoE_XU4Y_E1FSf_v-4aAo-GFOQEG3RPo0xJuMl'
 alias xcode_enable_vim='cd ~/Desktop/XVim/; make'
 alias xcode_disable_vim='cd ~/Desktop/XVim/; make uninstall'
 alias full-pull="git checkout develop; git pull; git checkout master; git pull;"
@@ -154,7 +153,7 @@ project () {
   if [ $1 = "well-good" ]; then
     open_harvest=true;
     open_slack=true;
-    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 http://well-good.lndo.site/wp-admin http://well-good.lndo.site';
+    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(_source),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:AWJK0fD2Sfrd7E1b8ry9,key:namespace,negate:!f,type:phrase,value:wellandgoodwp),query:(match:(namespace:(query:wellandgoodwp,type:phrase))))),index:AWJK0fD2Sfrd7E1b8ry9,interval:auto,query:(match_all:()),sort:!(%27@timestamp%27,desc)) http://well-good.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
     open_harvest=false;
     open_slack=false;
