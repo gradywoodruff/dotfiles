@@ -177,7 +177,7 @@ project () {
   elif [ $1 = "cough" ]; then
     open_harvest=true;
     open_slack=false;
-    tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login';
+    tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login http://admin.coughproject.com:5000/';
   else
     open_harvest=false;
     open_slack=false;
