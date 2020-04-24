@@ -190,7 +190,7 @@ project () {
     if [ "$open_slack" != false ]; then
       open -a "Slack";
     fi
-    if [ -f ~/sites/$1/$1.code-workspace ]; then
+    if [ -f ~/Code/$1/$1.code-workspace ]; then
       echo "Workspace located";
       sites; code $1/$1.code-workspace;
     else
@@ -207,18 +207,7 @@ project () {
 
 # Opens a project in SourceTree
 tree () {
-  stree ~/documents/sites/${1};
-}
-
-# Opens a project's pantheon dashboard
-# must be run from somehwere inside 
-# TODO: add conditions and constraints
-pantheon () {
-  sites; cd $1;
-  CONFIG_ID=$(cat .lando.yml | grep "id:");
-  LANDO_ID=$(cut -d ":" -f 2 <<< "$CONFIG_ID");
-  LANDO_ID=$(echo -e "$LANDO_ID" | tr -d '[:space:]');
-  open "https://dashboard.pantheon.io/sites/$LANDO_ID";
+  stree ~/Code/${1};
 }
 
 # Opens provided ticket number in JIRA 
@@ -226,16 +215,6 @@ pantheon () {
 # https://barrel.atlassian.net/browse/
 jira () {
   open "https://barrel.atlassian.net/browse/$1";
-}
-
-# Opens full software stack for a project
-# - GitLab Merge Requests
-# - VSCode
-# - SourceTree
-stack() {
-  project $1;
-  tree $1;
-  sites; cd $1; www-gitlab;
 }
 
 # Removes any local git branches if they have been
