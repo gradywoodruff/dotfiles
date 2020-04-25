@@ -10,7 +10,7 @@ alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias py='python'
 alias shrug='echo "¯\_(ツ)_/¯" | pbcopy'
-alias sites='cd ~/Sites'
+alias code_dir='cd ~/Code'
 alias sshkey='cat ~/.ssh/id_rsa.pub | pbcopy'
 alias ssh-fingerprint='ssh-keygen -E md5 -lf'
 alias sync='git push origin develop; git checkout master; git push origin master; git push origin $(version)'
@@ -53,7 +53,7 @@ cdbase () {
   base=${path#/Users/gradywoodruff};
   project_type=$(echo "$base" | cut -d "/" -f2);
   project=$(echo "$base" | cut -d "/" -f3);
-  if [ $project_type = "Sites" ]; then
+  if [ $project_type = "Code" ]; then
     if [ $project = "well-good" ]; then
       cd ../../..;
     fi;
@@ -66,7 +66,7 @@ cdtheme () {
   base=${path#/Users/gradywoodruff};
   project_type=$(echo "$base" | cut -d "/" -f2);
   project=$(echo "$base" | cut -d "/" -f3);
-  if [ $project_type = "Sites" ]; then
+  if [ $project_type = "Code" ]; then
     if [ $project = "well-good" ]; then
       cd wp-content/themes/wellgood-2016;
     fi;
@@ -192,10 +192,10 @@ project () {
     fi
     if [ -f ~/Code/$1/$1.code-workspace ]; then
       echo "Workspace located";
-      sites; code $1/$1.code-workspace;
+      code_dir; code $1/$1.code-workspace;
     else
       echo "No workspace available";
-      sites; code $1;
+      code_dir; code $1;
     fi
   fi
   if [ -z "$tabs" ]; then
