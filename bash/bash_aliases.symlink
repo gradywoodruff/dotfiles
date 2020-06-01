@@ -153,7 +153,7 @@ project () {
   if [ $1 = "well-good" ]; then
     open_harvest=true;
     open_slack=true;
-    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.com/barrel/Well-Good https://dashboard.pantheon.io/sites/10fd143a-af36-4acd-bad9-6ef19a2619c6 https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(_source),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:AWJK0fD2Sfrd7E1b8ry9,key:namespace,negate:!f,type:phrase,value:wellandgoodwp),query:(match:(namespace:(query:wellandgoodwp,type:phrase))))),index:AWJK0fD2Sfrd7E1b8ry9,interval:auto,query:(match_all:()),sort:!(%27@timestamp%27,desc)) http://well-good.lndo.site';
+    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(_source),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:AWJK0fD2Sfrd7E1b8ry9,key:namespace,negate:!f,type:phrase,value:wellandgoodwp),query:(match:(namespace:(query:wellandgoodwp,type:phrase))))),index:AWJK0fD2Sfrd7E1b8ry9,interval:auto,query:(match_all:()),sort:!(%27@timestamp%27,desc)) https://www.figma.com/files/838100240888976577/project/8734587/Well%2BGood https://basecamp.com/1760483/projects/10335573/topics http://well-good.lndo.site';
   elif [ $1 = "sophia_roe" ]; then
     open_harvest=false;
     open_slack=false;
