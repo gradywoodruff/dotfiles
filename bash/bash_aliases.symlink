@@ -169,6 +169,7 @@ project () {
   elif [ $1 = "dear-me" ]; then
     open_harvest=true;
     open_slack=false;
+    open_xcode=true;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/dearme-v0 https://github.com/gradywoodruff/dear-me/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:3000/';
   elif [ $1 = "fake-weather" ]; then
     open_harvest=true;
@@ -189,6 +190,9 @@ project () {
     fi
     if [ "$open_slack" != false ]; then
       open -a "Slack";
+    fi
+    if [ "$open_xcode" != false ]; then
+      open -a "Xcode";
     fi
     if [ -f ~/Code/$1/$1.code-workspace ]; then
       echo "Workspace located";
