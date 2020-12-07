@@ -153,10 +153,12 @@ project () {
   if [ $1 = "well-good" ]; then
     open_harvest=true;
     open_slack=true;
-    tabs='https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(_source),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:AWJK0fD2Sfrd7E1b8ry9,key:namespace,negate:!f,type:phrase,value:wellandgoodwp),query:(match:(namespace:(query:wellandgoodwp,type:phrase))))),index:AWJK0fD2Sfrd7E1b8ry9,interval:auto,query:(match_all:()),sort:!(%27@timestamp%27,desc)) https://www.figma.com/files/838100240888976577/project/8734587/Well%2BGood https://basecamp.com/1760483/projects/10335573/topics http://well-good.lndo.site';
+    open_figma=true;
+    tabs="https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://sre-kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(message),index:'1dc12970-e736-11ea-bddc-cf07d42210e0',interval:auto,query:(language:kuery,query:'kubernetes.namespace%20:%20%22wellandgoodwp%22%20AND%20kubernetes.container.name:%20%22wp%22'),sort:!(!('@timestamp',desc))) https://www.figma.com/files/838100240888976577/project/8734587/Well%2BGood https://basecamp.com/1760483/projects/10335573/topics http://well-good.lndo.site";
   elif [ $1 = "sophia_roe" ]; then
     open_harvest=false;
     open_slack=false;
+    open_figma=false;
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
     open_harvest=true;
@@ -185,14 +187,17 @@ project () {
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then
-    if [ "$open_harvest" != false ]; then
+    if [ "$open_harvest" == true ]; then
       open -a "Harvest";
     fi
-    if [ "$open_slack" != false ]; then
+    if [ "$open_slack" == true ]; then
       open -a "Slack";
     fi
-    if [ "$open_xcode" != false ]; then
+    if [ "$open_xcode" == true ]; then
       open -a "Xcode";
+    fi
+    if [ "$open_figma" == true ]; then
+      open -a "Figma";
     fi
     if [ -f ~/Code/$1/$1.code-workspace ]; then
       echo "Workspace located";
