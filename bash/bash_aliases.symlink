@@ -32,6 +32,8 @@ alias log="git log --oneline"
 alias branch="git branch"
 alias laradock_start='cd /Users/gradywoodruff/Code/well-good/laradock && docker-compose up -d nginx mariadb workspace && cd ..'
 alias laradock_stop='docker-compose stop'
+alias ssh_personal='ssh-add -D && ssh-add ~/.ssh/id_rsa'
+alias ssh_brrl='ssh-add -D && ssh-add ~/.ssh/id_rsa_brrl_gitlab'
 
 lorem () {
   gtr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>10' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' |fmt | head -n $1 | pbcopy
@@ -156,34 +158,23 @@ project () {
     open_figma=true;
     tabs="https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://sre-kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(message),index:'1dc12970-e736-11ea-bddc-cf07d42210e0',interval:auto,query:(language:kuery,query:'kubernetes.namespace%20:%20%22wellandgoodwp%22%20AND%20kubernetes.container.name:%20%22wp%22'),sort:!(!('@timestamp',desc))) https://www.figma.com/files/838100240888976577/project/8734587/Well%2BGood https://basecamp.com/1760483/projects/10335573/topics http://well-good.lndo.site";
   elif [ $1 = "sophia_roe" ]; then
-    open_harvest=false;
-    open_slack=false;
-    open_figma=false;
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
     open_harvest=true;
-    open_slack=false;
     tabs='https://docs.google.com/document/d/10lpzLG-bPAhr6iXyDP0Xt2L-UdzNz7-lv1swoVq5bt8/edit?ts=5bc8e5f2 https://capbeauty.myshopify.com/admin';
   elif [ $1 = "textpile" ]; then
     open_harvest=true;
-    open_slack=false;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/textpile https://app.sendgrid.com/ https://textpile.herokuapp.com/ http://localhost:3000/';
   elif [ $1 = "dear-me" ]; then
     open_harvest=true;
-    open_slack=false;
     open_xcode=true;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593 https://dashboard.heroku.com/apps/dearme-v0 https://github.com/gradywoodruff/dear-me/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:3000/';
   elif [ $1 = "fake-weather" ]; then
     open_harvest=true;
-    open_slack=false;
     tabs='https://github.com/gradywoodruff/fake-weather';
   elif [ $1 = "cough" ]; then
     open_harvest=true;
-    open_slack=false;
     tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login http://admin.coughproject.com:5000/';
-  else
-    open_harvest=false;
-    open_slack=false;
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then
