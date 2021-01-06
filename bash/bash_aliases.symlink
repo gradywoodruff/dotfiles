@@ -34,6 +34,7 @@ alias laradock_start='cd /Users/gradywoodruff/Code/well-good/laradock && docker-
 alias laradock_stop='docker-compose stop'
 alias ssh_personal='ssh-add -D && ssh-add ~/.ssh/id_rsa'
 alias ssh_brrl='ssh-add -D && ssh-add ~/.ssh/id_rsa_brrl_gitlab'
+alias hosts='sudo nano /etc/hosts'
 
 lorem () {
   gtr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>10' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | sed 's/ / /g' |fmt | head -n $1 | pbcopy
@@ -175,6 +176,10 @@ project () {
   elif [ $1 = "cough" ]; then
     open_harvest=true;
     tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login http://admin.coughproject.com:5000/';
+  elif [ $1 = "noiseflood" ]; then
+    open_harvest=true;
+    open_xcode=true;
+    tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593#metrics/replicaSet/5e3f36d7014b76afe0e30e56/explorer/noiseflood https://dashboard.heroku.com/apps/noiseflood https://github.com/gradywoodruff/noiseflood/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:4000/';
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then
