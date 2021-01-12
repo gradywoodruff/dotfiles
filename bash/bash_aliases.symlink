@@ -178,7 +178,6 @@ project () {
     tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login http://admin.coughproject.com:5000/';
   elif [ $1 = "noiseflood" ]; then
     open_harvest=true;
-    open_xcode=true;
     tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593#metrics/replicaSet/5e3f36d7014b76afe0e30e56/explorer/noiseflood https://dashboard.heroku.com/apps/noiseflood https://github.com/gradywoodruff/noiseflood/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:4000/';
   fi 
 
