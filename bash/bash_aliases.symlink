@@ -157,7 +157,7 @@ project () {
     open_harvest=true;
     open_slack=true;
     open_figma=true;
-    tabs="https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://sre-kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(message),index:'1dc12970-e736-11ea-bddc-cf07d42210e0',interval:auto,query:(language:kuery,query:'kubernetes.namespace%20:%20%22wellandgoodwp%22%20AND%20kubernetes.container.name:%20%22wp%22'),sort:!(!('@timestamp',desc))) https://www.figma.com/files/838100240888976577/project/8734587/Well%2BGood https://basecamp.com/1760483/projects/10335573/topics http://well-good.lndo.site";
+    tabs="https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://sre-kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(message),index:'1dc12970-e736-11ea-bddc-cf07d42210e0',interval:auto,query:(language:kuery,query:'kubernetes.namespace%20:%20%22wellandgoodwp%22%20AND%20kubernetes.container.name:%20%22wp%22'),sort:!(!('@timestamp',desc))) https://basecamp.com/1760483/projects/10335573/documents/14912637 http://well-good.lndo.site";
   elif [ $1 = "sophia_roe" ]; then
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
@@ -178,7 +178,7 @@ project () {
     tabs='https://account.mongodb.com/account/login https://dashboard.heroku.com/apps/cough https://github.com/gradywoodruff/cough https://drive.google.com/drive/u/4/my-drive https://app.sendgrid.com/login http://admin.coughproject.com:5000/';
   elif [ $1 = "noiseflood" ]; then
     open_harvest=true;
-    tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593#metrics/replicaSet/5e3f36d7014b76afe0e30e56/explorer/noiseflood https://dashboard.heroku.com/apps/noiseflood https://github.com/gradywoodruff/noiseflood/ https://www.twilio.com/console https://app.sendgrid.com/ http://localhost:4000/';
+    tabs='https://cloud.mongodb.com/v2/5d4b7f09cf09a20e0e0a4593#metrics/replicaSet/5e3f36d7014b76afe0e30e56/explorer/noiseflood https://dashboard.heroku.com/apps/noiseflood https://github.com/gradywoodruff/noiseflood/ https://www.twilio.com/console https://app.sendgrid.com/ https://docs.google.com/spreadsheets/d/1eGZjVY_NAOShFXRm_4RIx8_hCk0tey3FEvydeHiu9pg/edit#gid=1848333135 http://localhost:4000/';
   fi 
 
   if [ -z "$2" ] || [ $2 != "web" ]; then

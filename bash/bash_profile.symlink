@@ -28,3 +28,7 @@ fi
 
 ## sqlite3 rerouted to brew
 export PATH="/usr/local/opt/sqlite3/bin:$PATH"
+
+## Allow multithreading applications or scripts 
+## under the new Mac OS High Sierra security rules.
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
