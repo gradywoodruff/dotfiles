@@ -164,7 +164,7 @@ project () {
   )
 
   # Open encrypted notes
-  hdiutil attach ~/Documents/_notes.dmg;
+  hdiutil attach ~/Dropbox/_notes.dmg;
 
   for file in $project_path/*.json; do
     filename="$(basename $file)";
