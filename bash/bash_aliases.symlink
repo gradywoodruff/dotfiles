@@ -158,6 +158,9 @@ project () {
     open_slack=true;
     open_figma=true;
     tabs="https://barrel.harvestapp.com https://barrel.atlassian.net/secure/RapidBoard.jspa?rapidView=87&projectKey=WG https://gitlab.dmdmedia.net/wellandgood/wellandgoodwp https://wellandgood-jenkins.leaf.io/ http://sre-kibana01.lv7.leaf.io/app/kibana#/discover?_g=()&_a=(columns:!(message),index:'1dc12970-e736-11ea-bddc-cf07d42210e0',interval:auto,query:(language:kuery,query:'kubernetes.namespace%20:%20%22wellandgoodwp%22%20AND%20kubernetes.container.name:%20%22wp%22'),sort:!(!('@timestamp',desc))) https://app.asana.com/0/1199988243982936/board https://basecamp.com/1760483/projects/10335573/documents/14912637 http://well-good.lndo.site/wg-login https://localhost:3000/";
+  elif [ $1 = "inamorata" ]; then
+    open_harvest=true;
+    tabs="https://testing11113.myshopify.com/admin/ https://testing11113.myshopify.com/ https://inamorata-swim.myshopify.com/admin https://www.inamoratawoman.com/";
   elif [ $1 = "sophia_roe" ]; then
     tabs='https://dashboard.heroku.com/apps/sophiaroe https://s3.console.aws.amazon.com/s3/home?region=us-east-1 https://emailoctopus.com/dashboard http://127.0.0.1:8000';
   elif [ $1 = "cap-beauty" ]; then
