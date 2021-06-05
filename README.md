@@ -1,4 +1,4 @@
-# gradywoodruff does dotfiles
+# gradywoodruff dotfiles
 
 ## dotfiles
 
